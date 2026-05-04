@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CPP Park & Ride - My Account</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="logo">My Account</div>
+    <a href="myaccount.html" class="account-btn">My Account</a>
+</header>
+
+<main class="page-container centered">
+    <button class="back-btn" onclick="goBack()">Go Back</button>
+
+    <div class="account-panel">
+        <h1>My Account</h1>
+        <p>Name: CPP Student</p>
+        <p>Email: student@cpp.edu</p>
+    </div>
+
+    <div class="account-actions">
+        <a href="chat.html" class="account-action-btn">Chats</a>
+        <a href="login.html" class="account-action-btn logout-btn">Log Out</a>
+    </div>
+</main>
+
+<script>
+function goBack() {
+    window.location.href = "home.html";
+}
+</script>
+
+</body>
+</html>

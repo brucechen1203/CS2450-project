@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Easy Parking - Rides</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="logo">Give or Request a Ride</div>
+    <a href="myaccount.html" class="account-btn">My Account</a>
+</header>
+
+<main class="page-container">
+
+    <div class="side-buttons">
+        <button onclick="goBack()">Go Back</button>
+    </div>
+
+    <div class="ride-page-content">
+        <div class="ride-sections">
+
+            <div class="ride-card">
+                <img src="fromhometoschool.jpg" alt="Map showing rides from home to school" class="ride-map-image">
+                <button class="ride-action-btn" onclick="requestRide()">Request Ride to School</button>
+            </div>
+
+            <div class="ride-card">
+                <img src="fromschooltohome.jpg" alt="Map showing rides from school to home" class="ride-map-image">
+                <button class="ride-action-btn" onclick="requestRide()">Request Ride to Home</button>
+            </div>
+
+        </div>
+
+        <a href="giveride.html" class="ride-action-btn give-ride-btn">Give a Ride</a>
+    </div>
+
+</main>
+
+<script>
+function goBack() {
+    window.location.href = "home.html";
+}
+
+function requestRide() {
+    alert("Request successful! Connecting you to chat.");
+    window.location.href = "chat.html";
+}
+</script>
+
+</body>
+</html>

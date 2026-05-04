@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Easy Parking - Chat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="logo">Ride Chat</div>
+    <a href="myaccount.html" class="account-btn">My Account</a>
+</header>
+
+<main class="page-container centered">
+    <button class="back-btn" onclick="goBack()">Go Back</button>
+
+    <div id="driverList" class="driver-list">
+        <h1>These drivers are near you, choose one to chat with!</h1>
+        <button onclick="chooseDriver('Alex Martinez')">Alex Martinez</button>
+        <button onclick="chooseDriver('Jordan Lee')">Jordan Lee</button>
+        <button onclick="chooseDriver('Taylor Nguyen')">Taylor Nguyen</button>
+        <button onclick="chooseDriver('Morgan Patel')">Morgan Patel</button>
+    </div>
+
+    <div id="chatPanel" class="chat-panel">
+        <h1 id="chatTitle">Chat</h1>
+        <div id="chatMessages" class="chat-box"></div>
+        <form id="chatForm" class="chat-form">
+            <input id="chatInput" type="text" placeholder="Type a message" autocomplete="off">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</main>
+
+<script>
+function goBack() {
+    window.location.href = "ride.html";
+}
+
+const driverList = document.getElementById("driverList");
+const chatPanel = document.getElementById("chatPanel");
+const chatTitle = document.getElementById("chatTitle");
+const chatMessages = document.getElementById("chatMessages");
+const chatForm = document.getElementById("chatForm");
+const chatInput = document.getElementById("chatInput");
+
+function chooseDriver(driverName) {
+    driverList.style.display = "none";
+    chatPanel.style.display = "flex";
+    chatTitle.textContent = `Chat with ${driverName}`;
+    chatInput.focus();
+}
+
+function addMessage(text, className) {
+    const message = document.createElement("div");
+    message.className = `chat-message ${className}`;
+    message.textContent = text;
+    chatMessages.appendChild(message);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+chatForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const messageText = chatInput.value.trim();
+
+    if (!messageText) {
+        return;
+    }
+
+    addMessage(messageText, "user-message");
+    chatInput.value = "";
+    addMessage("Sure! I'll be right there.", "driver-message");
+});
+</script>
+
+</body>
+</html>

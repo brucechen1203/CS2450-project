@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Easy Parking - Parking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="logo">Campus Parking Maps and Spaces</div>
+    <a href="myaccount.html" class="account-btn">My Account</a>
+</header>
+
+<main class="page-container centered">
+
+    <button class="back-btn" onclick="goBack()">Go Back</button>
+
+    <div class="parking-box">
+        <div id="parkingImageDisplay" class="parking-image-display">
+            <img id="parkingImage" class="parking-map-image" src="" alt="">
+            <div class="parking-details">
+                <div class="parking-legend" aria-label="Filled parking space legend">
+                    <span class="filled-space-dot"></span>
+                    <span>= Filled Parking Space</span>
+                </div>
+                <p id="parkingInfoText" class="parking-info-text"></p>
+            </div>
+        </div>
+
+        <label for="parkingSelect">Select a parking lot/structure</label>
+
+        <select id="parkingSelect" class="real-dropdown">
+            <option value="">-- Choose a location --</option>
+            <option value="overflowparkinglot.png">Overflow Parking Lot</option>
+            <option value="overflowparkinglotunpaved.png">Overflow Parking Lot (Unpaved)</option>
+            <option value="parkinglotb.png">Parking Lot B</option>
+            <option value="parkinglotj.png">Parking Lot J</option>
+            <option value="parkinglotk.png">Parking Lot K</option>
+            <option value="parkinglotm.png">Parking Lot M</option>
+            <option value="parkinglotr.png">Parking Lot R</option>
+            <option value="parkinglott.png">Parking Lot T</option>
+            <option value="parkinglotu.png">Parking Lot U</option>
+            <option value="parkingstructure1.png">Parking Structure 1</option>
+            <option value="parkingstructure2.png">Parking Structure 2</option>
+        </select>
+
+    </div>
+
+</main>
+
+<script>
+function goBack() {
+    window.location.href = "home.html";
+}
+
+const parkingSelect = document.getElementById("parkingSelect");
+const parkingImage = document.getElementById("parkingImage");
+const parkingImageDisplay = document.getElementById("parkingImageDisplay");
+const parkingInfoText = document.getElementById("parkingInfoText");
+
+const parkingInfoByImage = {
+    "overflowparkinglot.png": "This lot is closest to: University Village",
+    "overflowparkinglotunpaved.png": "This lot is closest to: University Village",
+    "parkinglotb.png": "This lot is closest to: University Village, Residence Suites, Kellog Arena, and English Language Institute",
+    "parkinglotj.png": "This lot is closest to: Health Services, College of Environmental Design, College of Agriculture, BioTrek Learning Center, and College of Science",
+    "parkinglotk.png": "This lot is closest to: University Village, Residence Suites, Kellog Arena, and English Language Institute",
+    "parkinglotm.png": "This lot is closest to: Health Services, College of Environmental Design, College of Agriculture, BioTrek Learning Center, and College of Science",
+    "parkinglotr.png": "This lot is closest to: Kellogg House Pomona",
+    "parkinglott.png": "This lot is closest to: Interim Design Center",
+    "parkinglotu.png": "This lot is closest to: University Village",
+    "parkingstructure1.png": "This lot is closest to: College of Business Administration, Classroom/Laboratory/Administration, and College of Engineering",
+    "parkingstructure2.png": "This lot is closest to: tennis Tennis Courts, BRIC, and Bronco Bookstore"
+};
+
+parkingSelect.addEventListener("change", function() {
+    const imageFile = parkingSelect.value;
+
+    if (!imageFile) {
+        parkingImage.removeAttribute("src");
+        parkingImage.alt = "";
+        parkingInfoText.textContent = "";
+        parkingImageDisplay.classList.remove("is-visible");
+        return;
+    }
+
+    parkingImage.src = imageFile;
+    parkingImage.alt = `${parkingSelect.options[parkingSelect.selectedIndex].text} map`;
+    parkingInfoText.textContent = parkingInfoByImage[imageFile] || "";
+    parkingImageDisplay.classList.add("is-visible");
+});
+
+parkingImage.addEventListener("error", function() {
+    parkingImage.removeAttribute("src");
+    parkingImage.alt = "";
+    parkingInfoText.textContent = "";
+    parkingImageDisplay.classList.remove("is-visible");
+});
+</script>
+
+</body>
+</html>

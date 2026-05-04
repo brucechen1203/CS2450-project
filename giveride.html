@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CPP Park & Ride - Give a Ride</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="logo">Give a Ride</div>
+    <a href="myaccount.html" class="account-btn">My Account</a>
+</header>
+
+<main class="page-container centered">
+    <button class="back-btn" onclick="goBack()">Go Back</button>
+
+    <div class="give-ride-panel">
+        <p>
+            You can offer rides to your fellow students by allowing access to the device's location.
+            They will be able to reach you via chat on this website.
+        </p>
+
+        <p>Allow Location Services?</p>
+
+        <div id="locationButtons" class="location-buttons">
+            <button onclick="showLocationMessage('yes')">Yes</button>
+            <button onclick="showLocationMessage('no')">No</button>
+        </div>
+
+        <p id="locationMessage" class="location-message"></p>
+    </div>
+</main>
+
+<script>
+function goBack() {
+    window.location.href = "ride.html";
+}
+
+function showLocationMessage(choice) {
+    const locationButtons = document.getElementById("locationButtons");
+    const locationMessage = document.getElementById("locationMessage");
+
+    locationButtons.classList.add("is-hidden");
+
+    if (choice === "yes") {
+        locationMessage.textContent = "Success! Cal Poly Pomona Students may now contact you for a ride! You can see messages in your Account tab.";
+    } else {
+        locationMessage.textContent = "Location Services Denied! If you ever change your mind you can return to this page later!";
+    }
+
+    window.setTimeout(function() {
+        locationButtons.style.display = "none";
+        locationMessage.classList.add("is-visible");
+    }, 180);
+}
+</script>
+
+</body>
+</html>
