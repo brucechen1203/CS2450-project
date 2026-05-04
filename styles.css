@@ -281,7 +281,20 @@ a {
     box-shadow: 0 10px 20px rgba(22, 185, 87, 0.22);
 }
 
+.request-ride-btn {
+    background: var(--green);
+    border-color: var(--green);
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(22, 185, 87, 0.22);
+}
+
 .give-ride-btn:hover {
+    background: var(--green-dark);
+    border-color: var(--green-dark);
+    color: #fff;
+}
+
+.request-ride-btn:hover {
     background: var(--green-dark);
     border-color: var(--green-dark);
     color: #fff;
