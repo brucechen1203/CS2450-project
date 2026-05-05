@@ -17,6 +17,8 @@ CPP Park & Ride is a web application designed for the Cal Poly Pomona community 
 2.  From the home page, you can navigate to the parking or ride-sharing sections.
 3.  Use the navigation to access other features like your account or chat.
 
+![CPP Park & Ride Screenshot](images/Home-Page.png)
+
 ## File Structure
 
 -   `login.html`: The login page.
