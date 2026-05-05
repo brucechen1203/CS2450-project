@@ -3,5 +3,5 @@ document.getElementById("loginForm")?.addEventListener("submit", function(e) {
 
     // No real authentication yet
     // Just simulate login and go to home page
-    window.location.href = "home.html";
+    window.location.href = "pages/home.html";
 });
